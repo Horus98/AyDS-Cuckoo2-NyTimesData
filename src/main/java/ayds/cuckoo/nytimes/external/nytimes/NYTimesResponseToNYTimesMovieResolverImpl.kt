@@ -2,31 +2,30 @@ package ayds.cuckoo.nytimes.external.nytimes
 
 import ayds.cuckoo.nytimes.external.entities.EmptyReviewResponse
 import ayds.cuckoo.nytimes.external.entities.NYTimesReviewResponse
-import ayds.cuckoo.nytimes.external.entities.OmdbMovieResponse
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 
-internal interface NYTimesResponseToNYTimesMovieResolver {
-    fun getReviewFromExternalData(body: String?, movie: OmdbMovieResponse): NYTimesReviewResponse
+interface NYTimesResponseToNYTimesMovieResolver {
+    fun getReviewFromExternalData(body: String?, movie: String, year: String): NYTimesReviewResponse
 }
 
-internal class NYTimesResponseToNYTimesMovieResolverImpl :
+class NYTimesResponseToNYTimesMovieResolverImpl :
     NYTimesResponseToNYTimesMovieResolver {
-    override fun getReviewFromExternalData(body: String?, movie: OmdbMovieResponse): NYTimesReviewResponse {
-        val result = getJsonObject(body, movie)
+    override fun getReviewFromExternalData(body: String?, movie: String, year: String): NYTimesReviewResponse {
+        val result = getJsonObject(body, year)
         val summary = getSummaryInfo(result)
         return if (summary == "")
             EmptyReviewResponse
         else NYTimesReviewResponse(
-            movie.title,
+            movie,
             getSummaryInfo(result),
             getPathImage(result),
             getLinkURL(result)
         )
     }
 
-    private fun getJsonObject(body: String?, movie: OmdbMovieResponse): JsonObject? {
+    private fun getJsonObject(body: String?, movieYear: String): JsonObject? {
         val gson = Gson()
         val jObj = gson.fromJson(body, JsonObject::class.java)
         val resultIterator: Iterator<JsonElement> = jObj["results"].asJsonArray.iterator()
@@ -35,7 +34,7 @@ internal class NYTimesResponseToNYTimesMovieResolverImpl :
         while (resultIterator.hasNext() && !sameYear) {
             result = resultIterator.next().asJsonObject
             val year = result["publication_date"].asString.split("-").toTypedArray()[0]
-            sameYear = year == movie.year
+            sameYear = year == movieYear
         }
         return result
     }
