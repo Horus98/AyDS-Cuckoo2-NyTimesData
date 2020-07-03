@@ -22,7 +22,6 @@ repositories {
 }
 
 dependencies {
-    compile 'libs:NyTimesData'
     compile 'com.squareup.retrofit2:retrofit:2.4.0'
     compile 'com.squareup.retrofit2:converter-scalars:2.4.0'
     compile 'com.google.code.gson:gson:2.8.2'
