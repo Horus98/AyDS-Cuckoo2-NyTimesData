@@ -1,4 +1,4 @@
-package ayds.cuckoo.nytimes.external.nytimes
+package ayds.cuckoo2.nytimes
 
 import retrofit2.Call
 import retrofit2.http.GET

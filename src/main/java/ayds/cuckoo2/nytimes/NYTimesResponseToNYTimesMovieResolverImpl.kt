@@ -1,7 +1,7 @@
-package ayds.cuckoo.nytimes.external.nytimes
+package ayds.cuckoo2.nytimes
 
-import ayds.cuckoo.nytimes.external.entities.EmptyReviewResponse
-import ayds.cuckoo.nytimes.external.entities.NYTimesReviewResponse
+import ayds.cuckoo2.nytimes.entities.EmptyReviewResponse
+import ayds.cuckoo2.nytimes.entities.NYTimesReviewResponse
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject

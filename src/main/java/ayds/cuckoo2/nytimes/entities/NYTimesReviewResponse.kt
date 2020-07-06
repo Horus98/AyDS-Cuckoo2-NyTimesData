@@ -1,4 +1,4 @@
-package ayds.cuckoo.nytimes.external.entities
+package ayds.cuckoo2.nytimes.entities
 
 open class NYTimesReviewResponse(var title: String?, var summary: String?, var imageUrl: String?, var linkReview: String?)
 

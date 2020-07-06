@@ -1,7 +1,9 @@
-package ayds.cuckoo.nytimes.external.nytimes
+package ayds.cuckoo2.nytimes
 
-import ayds.cuckoo.nytimes.external.ExternalService
-import ayds.cuckoo.nytimes.external.entities.NYTimesReviewResponse
+import ayds.cuckoo2.nytimes.ExternalService
+import ayds.cuckoo2.nytimes.NYTimesAPI
+import ayds.cuckoo2.nytimes.NYTimesResponseToNYTimesMovieResolver
+import ayds.cuckoo2.nytimes.entities.NYTimesReviewResponse
 import retrofit2.Response
 
 class NYTimesService(

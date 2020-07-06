@@ -1,4 +1,4 @@
-package ayds.cuckoo.nytimes.external.nytimes
+package ayds.cuckoo2.nytimes
 
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
@@ -10,7 +10,11 @@ object NyTimesReviewDataModule{
             .addConverterFactory(ScalarsConverterFactory.create())
             .build()
 
-    private fun getNyTimesAPI(): NYTimesAPI = retrofit.create(NYTimesAPI::class.java)
+    private fun getNyTimesAPI(): NYTimesAPI = retrofit.create(
+        NYTimesAPI::class.java)
 
-    val nyTimesService = NYTimesService(getNyTimesAPI(), NYTimesResponseToNYTimesMovieResolverImpl())
+    val nyTimesService = NYTimesService(
+        getNyTimesAPI(),
+        NYTimesResponseToNYTimesMovieResolverImpl()
+    )
 }
