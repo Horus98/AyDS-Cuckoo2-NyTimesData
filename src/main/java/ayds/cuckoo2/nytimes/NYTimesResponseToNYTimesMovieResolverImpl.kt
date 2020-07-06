@@ -10,7 +10,7 @@ interface NYTimesResponseToNYTimesMovieResolver {
     fun getReviewFromExternalData(body: String?, movie: String, year: String): NYTimesReview
 }
 
-class NYTimesResponseToNYTimesMovieResolverImpl :
+internal class NYTimesResponseToNYTimesMovieResolverImpl :
     NYTimesResponseToNYTimesMovieResolver {
     override fun getReviewFromExternalData(body: String?, movie: String, year: String): NYTimesReview {
         val result = getJsonObject(body, year)
