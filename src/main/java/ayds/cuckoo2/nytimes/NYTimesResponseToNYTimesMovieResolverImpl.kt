@@ -1,23 +1,23 @@
 package ayds.cuckoo2.nytimes
 
-import ayds.cuckoo2.nytimes.entities.EmptyReviewResponse
-import ayds.cuckoo2.nytimes.entities.NYTimesReviewResponse
+import ayds.cuckoo2.nytimes.entities.EmptyReview
+import ayds.cuckoo2.nytimes.entities.NYTimesReview
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 
 interface NYTimesResponseToNYTimesMovieResolver {
-    fun getReviewFromExternalData(body: String?, movie: String, year: String): NYTimesReviewResponse
+    fun getReviewFromExternalData(body: String?, movie: String, year: String): NYTimesReview
 }
 
 class NYTimesResponseToNYTimesMovieResolverImpl :
     NYTimesResponseToNYTimesMovieResolver {
-    override fun getReviewFromExternalData(body: String?, movie: String, year: String): NYTimesReviewResponse {
+    override fun getReviewFromExternalData(body: String?, movie: String, year: String): NYTimesReview {
         val result = getJsonObject(body, year)
         val summary = getSummaryInfo(result)
         return if (summary == "")
-            EmptyReviewResponse
-        else NYTimesReviewResponse(
+            EmptyReview
+        else NYTimesReview(
             movie,
             getSummaryInfo(result),
             getPathImage(result),

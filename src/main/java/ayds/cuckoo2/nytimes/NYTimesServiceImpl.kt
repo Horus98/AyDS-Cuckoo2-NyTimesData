@@ -1,6 +1,6 @@
 package ayds.cuckoo2.nytimes
 
-import ayds.cuckoo2.nytimes.entities.NYTimesReviewResponse
+import ayds.cuckoo2.nytimes.entities.NYTimesReview
 import retrofit2.Response
 
 class NYTimesServiceImpl(
@@ -8,7 +8,7 @@ class NYTimesServiceImpl(
     private val nytimesResolver: NYTimesResponseToNYTimesMovieResolver
 ) : NYTimesService {
 
-    override fun getMovieReview(movie: String, year: String): NYTimesReviewResponse {
+    override fun getMovieReview(movie: String, year: String): NYTimesReview {
         val callResponse = getNYTimesMovieFromService(movie)
         return nytimesResolver.getReviewFromExternalData(callResponse.body(), movie, year)
     }
