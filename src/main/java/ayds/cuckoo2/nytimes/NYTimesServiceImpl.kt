@@ -1,8 +1,5 @@
 package ayds.cuckoo2.nytimes
 
-import ayds.cuckoo2.nytimes.NYTimesService
-import ayds.cuckoo2.nytimes.NYTimesAPI
-import ayds.cuckoo2.nytimes.NYTimesResponseToNYTimesMovieResolver
 import ayds.cuckoo2.nytimes.entities.NYTimesReviewResponse
 import retrofit2.Response
 
