@@ -13,7 +13,7 @@ object NyTimesReviewDataModule{
     private fun getNyTimesAPI(): NYTimesAPI = retrofit.create(
         NYTimesAPI::class.java)
 
-    val nyTimesService = NYTimesService(
+    val nyTimesService = NYTimesServiceImpl(
         getNyTimesAPI(),
         NYTimesResponseToNYTimesMovieResolverImpl()
     )
