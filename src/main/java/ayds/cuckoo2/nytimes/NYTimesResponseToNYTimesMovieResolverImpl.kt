@@ -40,7 +40,7 @@ internal class NYTimesResponseToNYTimesMovieResolverImpl :
     }
 
     private fun getSummaryInfo(movie: JsonObject?): String {
-        if (movie == null) return "No results"
+        if (movie == null) return ""
         return movie["summary_short"].toString()
     }
 
