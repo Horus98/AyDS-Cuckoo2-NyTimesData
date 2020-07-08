@@ -3,7 +3,7 @@ package ayds.cuckoo2.nytimes
 import ayds.cuckoo2.nytimes.entities.NYTimesReview
 import retrofit2.Response
 
-class NYTimesServiceImpl(
+internal class NYTimesServiceImpl(
     private val nytimesAPI: NYTimesAPI,
     private val nytimesResolver: NYTimesResponseToNYTimesMovieResolver
 ) : NYTimesService {

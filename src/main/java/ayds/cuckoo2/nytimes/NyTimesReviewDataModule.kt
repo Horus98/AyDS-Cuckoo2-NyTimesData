@@ -14,7 +14,7 @@ object NyTimesReviewDataModule {
         NYTimesAPI::class.java
     )
 
-    val nyTimesService = NYTimesServiceImpl(
+    val nyTimesService: NYTimesService = NYTimesServiceImpl(
         getNyTimesAPI(),
         NYTimesResponseToNYTimesMovieResolverImpl()
     )
