@@ -20,7 +20,4 @@ En caso de no encontrarse la review de la película solicitada se retornara un o
 - Link imagen = "https://www.shareicon.net/data/256x256/2016/06/25/618683_new_256x256.png".
 - Link a crítica completa = "".
 
-En caso de no poder realizar una conexión con el servicio externo se retornará Review Not Found.
-
-
-
+En caso de no poder realizar una conexión con el servicio externo se retornará "No Results".
