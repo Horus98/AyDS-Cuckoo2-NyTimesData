@@ -12,7 +12,15 @@ La librería consta de un único método denominado getMovieReview, que recibe c
 - Link a una imagen representativa.<br>
 - Link a la crítica completa.<br>
 
+## Excepciones.
 
+En caso de no encontrarse la review de la película solicitada se retornara un objeto **EmptyReview**, cuyos atributos son los mismo que de **NyTimesReview**, pero inicializados de la siguiente manera : 
+- Titulo = "".
+- Summary = "No Results".
+- Link imagen = "https://www.shareicon.net/data/256x256/2016/06/25/618683_new_256x256.png".
+- Link a crítica completa = "".
+
+En caso de no poder realizar una conexión con el servicio externo se retornará Review Not Found.
 
 
 
